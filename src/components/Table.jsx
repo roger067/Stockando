@@ -11,8 +11,8 @@ const Table = ({ products }) => {
     <TableRow key={index} alignItems="center">
       <div>{product.descricao}</div>
       <div>{product.quantidade}</div>
-      <div>{product.media}</div>
-      <div>{product.total}</div>
+      <div>R$ {product.media}</div>
+      <div>R$ {product.total}</div>
     </TableRow>
   ));
 
@@ -41,6 +41,7 @@ const TableTag = styled(Flex)`
 const TableHeader = styled(Flex)`
   width: 100%;
   padding: 1rem;
+  padding-top: 0;
 
   div {
     flex: 1;
