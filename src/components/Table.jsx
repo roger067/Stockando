@@ -17,7 +17,7 @@ const Table = ({ products }) => {
   ));
 
   return (
-    <Flex direction="column" flex="3">
+    <Flex direction="column" flex="3" style={{marginRight: '30px'}}>
       <Title>Vendas</Title>
       <TableTag direction="column">
         <TableHeader>
