@@ -39,21 +39,14 @@ const DashboardContainer = () => {
     },
   ];
 
-  const options = {
-    title: {
-      text: ''
-    },
-    series: [{
-      data: [1, 2, 3]
-    }]
-  }
+  const data = [["Seg", 1], ['Ter', 5], ['Qua', 3]];
 
   return (
     <Flex direction="column">
       <Navbar />
       <Flex width="100%" style={{ padding: "3rem 2rem" }}>
         <Table products={products} />
-        <Graph options={options}/>
+        <Graph data={data}/>
       </Flex>
     </Flex>
   );

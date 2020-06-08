@@ -5,13 +5,12 @@ import HighchartsReact from 'highcharts-react-official'
 
 import { COLORS } from "../constants/colors";
 
-const Graph = () => {
+const Graph = ({data}) => {
   const gridLineColor = "#292922";
   const marker = {
     symbol: 'circle',
     fillColor: '#fff',
     lineWidth: 2,
-    lineColor: '',
     states: {
       hover: {
         radius: 4,
@@ -29,9 +28,6 @@ const Graph = () => {
       tickLength: 0,
       lineColor: gridLineColor,
       labels: {
-        step: 1,
-        autoRotation: [0],
-        y: 30,
         style: {
           color: '#fff',
           fontSize: '11px',
@@ -39,6 +35,7 @@ const Graph = () => {
           letterSpacing: 0,
         },
       },
+      "type": "category",
       crosshair: {
         width: 3,
         color: 'gridLineColor',
@@ -53,7 +50,6 @@ const Graph = () => {
       min: 0,
       title: { text: '' },
       gridLineColor: gridLineColor,
-      minPadding: 10,
       offset: 50,
       tickLength: 40,
       tickPosition: 'inside',
@@ -86,19 +82,16 @@ const Graph = () => {
         color: '#fff',
       },
     },
-    colorAxis: {
-
-    },
     series: [
       {
-        name: 'Hoje',
-        id: 'current',
+        name: 'Semana',
+        id: 'week',
         type: 'spline',
-        data: [1, 5, 3],
+        data: data,
         color: COLORS.PINK,
         lineWidth: 1.5,
         marker,
-      }
+      },
     ],
   };
   return(
@@ -111,6 +104,12 @@ const Graph = () => {
 const GraphTag = styled.div`
   path.highcharts-tick{
     stroke: #292929 !important;
+  }
+
+  .highcharts-legend-item {
+    path.highcharts-graph{
+      stroke-width: 0;
+    }
   }
 `;
 
